@@ -32,8 +32,7 @@ if (votosSI >= ((total/2)+1)) {print("Ha ganado el SI")}
               }
             }
            }
-      } else{print("Ha ganado el NO")
-            }
+      } else{print("Ha ganado el NO")}
           }
                                               }
 
@@ -44,11 +43,11 @@ votaciones(10,6,4)
 # Funcion votaciones_total, recibe solamente el parametro "total" de votos, los votosSi y votosNO 
 votaciones_total <- function(total)
   set.seed(total)
-  padron <- sample(c("SI","NO"),total,replace = TRUE)
-  padron <- as.data.frame(padron)
-  names(padron) <- c("votos")
-  votosSI <- sum(with(padron,votos == "SI"))
-  votosNO <- sum(with(padron,votos == "NO"))
+  f <- sample(c("SI","NO"),10,replace = TRUE)
+  f <- as.data.frame(f)
+  names(f) <- c("votos")
+  votosSI <- sum(with(f,votos == "SI"))
+  votosNO <- sum(with(f,votos == "NO"))
   
   if (votosSI >= ((total/2)+1)) {print("Ha ganado el SI")}
   else {print("votosSI no tiene Quorum")
@@ -70,7 +69,7 @@ votaciones_total <- function(total)
 
 
 # Ejecuta la funcion, solo hay que ingresar el total de votos, 10 por defecto segun el enunciado.
-votaciones_solo_total(10)
+votaciones_total(10)
 
 #La funcion set.seed() es una funcion util al momento de generar numeros aleatorios. 
 #La funcion samples() es una funcion que permite generar un vector con un cierto tipo de dato, con un tamaño de muestra definido, pudiendo reemplazar o no los datos aleatoriamente a traves de un vector de probabilidades o ejecutando set.seed() anteriormente.
